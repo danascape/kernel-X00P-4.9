@@ -1421,6 +1421,8 @@ config TOUCHSCREEN_GT9XX_v28
           If unsure, say N.
 
 source "drivers/input/touchscreen/gt9xx_v2.8/Kconfig"
+source "drivers/input/touchscreen/HX852xES/Kconfig"
+source "drivers/input/touchscreen/ft5346i/Kconfig"
 
 config TOUCHSCREEN_HIMAX_CHIPSET
 	bool "Himax touchpanel CHIPSET"
@@ -1433,7 +1435,6 @@ config TOUCHSCREEN_HIMAX_CHIPSET
           If unsure, say N.
 
 source "drivers/input/touchscreen/hxchipset/Kconfig"
-source "drivers/input/touchscreen/HX852xES/Kconfig"
 
 config TOUCHSCREEN_EKTF3XXX_CHIPSET
 	bool "Elan EKTF3XXX touchpanel CHIPSET"
