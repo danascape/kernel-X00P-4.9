@@ -74,7 +74,7 @@ void himax_touch_proc_deinit(void);
 #endif
 //===========Himax Option function=============
 #define HX_RST_PIN_FUNC
-#define HX_AUTO_UPDATE_FW
+//#define HX_AUTO_UPDATE_FW
 //hongfan@wind-mobi.com 20180111 end
 #define HX_ESD_RECOVERY
 #define HX_CHIP_STATUS_MONITOR		/*for ESD 2nd solution,it does not support incell,default off*/
@@ -317,7 +317,7 @@ struct himax_ts_data
 #ifdef HX_SMART_WAKEUP
     uint8_t SMWP_enable;
     uint8_t gesture_cust_en[16];
-    struct wakeup_source *ts_SMWP_wake_lock;
+    struct wakeup_source ts_SMWP_wake_lock;
 #endif
 
 #ifdef HX_HIGH_SENSE
