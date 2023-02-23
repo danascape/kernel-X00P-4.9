@@ -13,6 +13,12 @@
 
 /* msm8937 */
 
+&firmware {
+	android {
+		/delete-node/ vbmeta;
+	};
+};
+
 &other_ext_mem {
 	reg = <0x0 0x84A00000 0x0 0x1E00000>;
 };
