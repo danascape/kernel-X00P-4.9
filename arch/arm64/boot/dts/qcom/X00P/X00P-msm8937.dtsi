@@ -16,6 +16,11 @@
 &firmware {
 	android {
 		/delete-node/ vbmeta;
+		fstab {
+			vendor {
+				fsmgr_flags = "wait";
+			};
+		};
 	};
 };
 
