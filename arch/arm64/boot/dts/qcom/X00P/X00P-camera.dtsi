@@ -178,7 +178,6 @@
 
 	qcom,camera@1 {
 		qcom,mount-angle = <270>;
-		qcom,led-flash-src = <&led_flash1>;
 		/delete-property/ cam_vio-supply;
 		/delete-property/ cam_vaf-supply;
 		qcom,cam-vreg-name = "cam_vdig", "cam_vana";
@@ -215,7 +214,6 @@
 	};
 
 	qcom,camera@2 {
-		qcom,led-flash-src = <&led_flash0>;
 		/delete-property/ qcom,actuator-src;
 		/delete-property/ cam_vio-supply;
 		/delete-property/ cam_vaf-supply;

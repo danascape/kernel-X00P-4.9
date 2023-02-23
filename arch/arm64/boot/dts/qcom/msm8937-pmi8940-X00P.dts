@@ -28,6 +28,7 @@
 #include "msm8937-mdss-panels.dtsi"
 #include "msm8937-camera-sensor-mtp.dtsi"
 
+/*
 &soc {
 	led_flash0: qcom,camera-flash@0 {
 		cell-index = <0>;
@@ -38,7 +39,7 @@
 		qcom,switch-source = <&pmi8940_switch>;
 		status = "ok";
 	};
-	
+
 	led_flash1: qcom,camera-flash@1 {
 		cell-index = <1>;
 		compatible = "qcom,camera-flash";
@@ -49,7 +50,7 @@
 		status = "ok";
 	};
 };
-
+*/
 &qpnp_smbcharger {
 	qcom,battery-data = <&mtp_batterydata>;
 	qcom,chg-led-sw-controls;
