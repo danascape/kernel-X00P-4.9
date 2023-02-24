@@ -681,7 +681,8 @@ dtb-$(CONFIG_ARCH_SDM429) += sdm429-mtp.dtb \
 
 endif
 
-endif // Asus X00P Configuration
+# Asus X00P Configuration
+endif
 
 dtb-$(CONFIG_ARCH_SDM845_VM) += sdm845-vm.dtb
 
