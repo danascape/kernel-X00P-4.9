@@ -87,17 +87,17 @@ void msm_torch_brightness_set(struct led_classdev *led_cdev,
 
 static struct led_classdev msm_torch_led[MAX_LED_TRIGGERS] = {
 	{
-		.name		= "torch-light0",
+		.name		= "torch0_trigger",
 		.brightness_set	= msm_torch_brightness_set,
 		.brightness	= LED_OFF,
 	},
 	{
-		.name		= "torch-light1",
+		.name		= "torch1_trigger",
 		.brightness_set	= msm_torch_brightness_set,
 		.brightness	= LED_OFF,
 	},
 	{
-		.name		= "torch-light2",
+		.name		= "torch2_trigger",
 		.brightness_set	= msm_torch_brightness_set,
 		.brightness	= LED_OFF,
 	},
@@ -107,7 +107,7 @@ static int32_t msm_torch_create_classdev(struct platform_device *pdev,
 				void *data)
 {
 	int32_t rc = 0;
-	int32_t i = 0;
+	int32_t i = 0, j = 0;
 	struct msm_flash_ctrl_t *fctrl =
 		(struct msm_flash_ctrl_t *)data;
 
@@ -119,16 +119,22 @@ static int32_t msm_torch_create_classdev(struct platform_device *pdev,
 	for (i = 0; i < fctrl->torch_num_sources; i++) {
 		if (fctrl->torch_trigger[i]) {
 			torch_trigger = fctrl->torch_trigger[i];
+			for (j = 0; j < MAX_LED_TRIGGERS; j++) {
+                                  if (strcmp(fctrl->torch_trigger[i]->name,msm_torch_led[j].name) == 0){
+                                            break;
+                                   }
+                               }			
 			CDBG("%s:%d msm_torch_brightness_set for torch %d",
-				__func__, __LINE__, i);
-			msm_torch_brightness_set(&msm_torch_led[i],
+				__func__, __LINE__, j);
+			msm_torch_brightness_set(&msm_torch_led[j],
 				LED_OFF);
-
+                             CDBG("%s:%d led_classdev_register  %d",
+				__func__, __LINE__, j);
 			rc = led_classdev_register(&pdev->dev,
-				&msm_torch_led[i]);
+				&msm_torch_led[j]);
 			if (rc) {
 				pr_err("Failed to register %d led dev. rc = %d\n",
-						i, rc);
+						j, rc);
 				return rc;
 			}
 		} else {
