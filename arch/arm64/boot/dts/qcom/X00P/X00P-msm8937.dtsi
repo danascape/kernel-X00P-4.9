@@ -35,7 +35,7 @@
 		qcom,hsusb-otg-phy-host-init-seq = <0x44 0x80 0x65 0x81 0x33 0x82 0x33 0x83 0xffffffff>;
 	};
 
-	/delete-node/ qseecom@85b00000;
+	/delete-node/ qseecom@85c00000;
 
 	qcom_seecom: qseecom@84A00000 {
 		compatible = "qcom,qseecom";
